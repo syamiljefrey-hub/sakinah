@@ -7,7 +7,7 @@ import Adhan from "../components/Adhan";
 import Qibla from "../components/Qibla";
 
 const TABS = ["Home", "Quran", "Adhan", "Qibla"];
-const DEFAULTS = { lat: 3.139, lng: 101.687, address: "", method: 17, school: 0 };
+const DEFAULTS = { lat: 3.139, lng: 101.687, address: "", method: 17, school: 0, notifications: true };
 
 export default function App() {
   const [tab, setTab] = useState("Home");
