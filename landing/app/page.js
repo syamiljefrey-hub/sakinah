@@ -93,7 +93,16 @@ export default function Page() {
             <p>{t.sub}</p>
             <div className="actions">
               <a className="btn gold" href="#download">{t.cta}</a>
-              <a className="btn ghost" href="#preview">{t.cta2}</a>
+              <a 
+                className="btn ghost" 
+                href="#preview"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("preview")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                {t.cta2}
+              </a>
             </div>
           </div>
           <Phone {...{ t, lang, city, cityKey, np, tab, setTab, read, toggleRead, L }} />
