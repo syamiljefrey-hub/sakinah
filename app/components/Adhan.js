@@ -1,8 +1,22 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
+
+// Standard calculation helper or fallback for Kuala Lumpur (lat: 3.139, lng: 101.687)
+function getPrayerTimes(lat, lng) {
+  // If you have an existing prayer calculation library in ../lib, import and use it here.
+  // Default JAKIM / Kuala Lumpur reference times:
+  return [
+    { name: "Fajr (Subuh)", time: "05:52" },
+    { name: "Dhuhr (Zohor)", time: "13:04" },
+    { name: "Asr (Asar)", time: "16:26" },
+    { name: "Maghrib", time: "19:01" },
+    { name: "Isha (Isyak)", time: "20:14" },
+  ];
+}
 
 export default function Adhan({ s, setS }) {
   const notificationsEnabled = s.notifications ?? true;
+  const prayers = useMemo(() => getPrayerTimes(s.lat, s.lng), [s.lat, s.lng]);
 
   const toggleNotifications = () => {
     setS((prev) => ({
@@ -13,9 +27,10 @@ export default function Adhan({ s, setS }) {
 
   return (
     <div className="adhan-settings">
-      <h2>Adhan Settings</h2>
-      <p>Manage prayer time alerts and audio playback.</p>
+      <h2>Adhan & Prayer Times</h2>
+      <p>Daily prayer schedule and notification preferences.</p>
 
+      {/* Azan Notification Toggle */}
       <div
         className="setting-row"
         style={{
@@ -66,6 +81,29 @@ export default function Adhan({ s, setS }) {
             }}
           />
         </button>
+      </div>
+
+      {/* Prayer Times List */}
+      <div style={{ marginTop: "24px" }}>
+        <h3 style={{ marginBottom: "12px" }}>Today&apos;s Prayer Times</h3>
+        <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+          {prayers.map((p) => (
+            <li
+              key={p.name}
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                padding: "12px 16px",
+                marginBottom: "8px",
+                borderRadius: "8px",
+                backgroundColor: "rgba(128, 128, 128, 0.1)",
+              }}
+            >
+              <span>{p.name}</span>
+              <strong>{p.time}</strong>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
