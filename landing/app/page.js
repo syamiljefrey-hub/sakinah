@@ -93,7 +93,7 @@ export default function Page() {
             <p>{t.sub}</p>
             <div className="actions">
               <a className="btn gold" href="#download">{t.cta}</a>
-              <a className="btn ghost" href={LINKS.web} target="_blank" rel="noreferrer">{t.cta2}</a>
+              <a className="btn ghost" href="http://localhost:3000" target="_blank" rel="noreferrer">{t.cta2}</a>
             </div>
           </div>
           <Phone {...{ t, lang, city, cityKey, np, tab, setTab, read, toggleRead, L }} />
