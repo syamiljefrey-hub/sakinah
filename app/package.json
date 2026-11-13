@@ -1,0 +1,31 @@
+{
+  "name": "sakina-app",
+  "version": "1.0.0",
+  "private": true,
+  "main": "electron/main.js",
+  "description": "Sakina - Muslim lifestyle app",
+  "author": "Sakina",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "electron": "next build && electron .",
+    "dist:win": "next build && electron-builder --win",
+    "cap:add": "npx cap add android",
+    "cap:android": "next build && npx cap sync android && npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/cli": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": { "electron": "^33.0.0", "electron-builder": "^25.0.0" },
+  "build": {
+    "appId": "com.sakina.app",
+    "productName": "Sakina",
+    "files": ["out/**", "electron/**", "package.json"],
+    "win": { "target": "nsis" }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "sakina",
+  "private": true,
+  "scripts": {
+    "dev:landing": "npm --prefix landing run dev",
+    "build:landing": "npm --prefix landing run build",
+    "dev:app": "npm --prefix app run dev"
+  }
+}
