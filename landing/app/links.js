@@ -5,5 +5,5 @@
 export const LINKS = {
   windows: "/downloads/Sakina-Setup.exe",
   android: "/downloads/Sakina.apk",
-  web: "http://localhost:3001", // replace with your deployed app link, e.g. https://sakina-app.pages.dev
+  web: "http://localhost:3000", // replace with your deployed app link, e.g. https://sakina-app.pages.dev
 };
